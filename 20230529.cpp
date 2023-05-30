@@ -288,50 +288,18 @@ using namespace std;
 
 int main()
 {
-	char sentence[100] = { 0 };
+	char word[32] = { 0 };
 	int count = 0;
 	bool isDone = false;
 
 	cout << "영어 단어들을 입력하십시오 (끝내려면 done을 입력) :" << endl;
 	while (!isDone)
 	{
-		cin.ignore();
-		cin.get(sentence, sizeof(sentence) - 1);
-		char* temp = new char[strlen(sentence)];
-		int idx = 0;
-
-		for (int i = 0; i < strlen(sentence) + 1; i++)
-		{
-			if (sentence[i] == ' ' || sentence[i] == '\0')
-			{
-				if (strcmp(temp, "done") == 0)
-				{
-					isDone = true;
-					break;
-				}
-				else if (temp[0] == ' ')
-				{
-					if (sentence[i] == '\0')
-						break;
-					else continue;
-				}
-				else
-				{
-					memset(temp, 0, strlen(sentence));
-					idx = 0;
-					count++;
-					if (sentence[i] == '\0')
-						break;
-				}
-			}
-			else
-			{
-				temp[idx] = sentence[i];
-				temp[idx + 1] = '\0';
-				idx++;
-			}
-		}
-		delete[] temp;
+		cin >> word;
+		if (strcmp(word, "done") == 0)
+			isDone = true;
+		else
+			count++;
 	}
 
 	cout << "총 " << count << " 단어가 입력되었습니다." << endl;
