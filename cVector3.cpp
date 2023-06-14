@@ -70,7 +70,7 @@ cVector3 cVector3::Cross(const cVector3& v) const
 	return cVector3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
 }
 
-double cVector3::Angle(const cVector3& v) const
+double cVector3::Angle(const cVector3 v) const
 {
 	double theta = acos(Dot(v) / (length() * v.length()));
 	const double pi = 3.14159265358979;

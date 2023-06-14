@@ -42,7 +42,7 @@ public:
 
 	double Dot(const cVector3& v) const;
 	cVector3 Cross(const cVector3& v) const;
-	double Angle(const cVector3& v) const;
+	double Angle(const cVector3 v) const;
 
 	friend cVector3 operator*(const double d, const cVector3& v);
 	friend std::ostream& operator<<(std::ostream& os, const cVector3& v);

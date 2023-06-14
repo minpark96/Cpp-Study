@@ -1,7 +1,8 @@
 #pragma once
-#ifndef CIRCLE2D_H__
-#define CIRCLE2D_H__
+#ifndef CIRCLE2D_H_
+#define CIRCLE2D_H_
 
+#include "mypoint.h"
 
 class Circle2D
 {
@@ -20,7 +21,9 @@ public:
 	bool contains(double x, double y) const;
 	bool contains(const Circle2D& circle) const;
 	bool overlaps(const Circle2D& circle) const;
+
+	friend bool contains(const Circle2D& c, const MyPoint& p) 
+	{ return c.contains(p.getX(), p.getY()); };
 };
 
-
-#endif // !CIRCLE2D_H__
+#endif
