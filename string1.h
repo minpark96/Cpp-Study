@@ -22,12 +22,13 @@ public:
 
 	String& operator=(const String& st);
 	String& operator=(const char* s);
-	String operator+(const String& st);
-	String operator+(const char* s);
+	//String operator+(const String& st);
+	//String operator+(const char* s);
 	char& operator[](int i);
 	const char& operator[](int i) const;
 
-	friend String operator+(const char* s, const String& st);
+	//friend String operator+(const char* s, const String& st);
+	friend String operator+(const String& st1, const String& st2);
 	friend bool operator<(const String& st1, const String& st2);
 	friend bool operator>(const String& st1, const String& st2);
 	friend bool operator==(const String& st1, const String& st2);	

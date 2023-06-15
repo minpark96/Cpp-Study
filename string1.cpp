@@ -85,28 +85,28 @@ String& String::operator=(const char* s)
     return *this;
 }
 
-String String::operator+(const String& st)
-{
-    int newLen = len + st.len;
-    char* temp = new char[newLen + 1];
-    std::strcpy(temp, str);
-    std::strcat(temp, st.str);
-    String newSt(temp);
-    delete[] temp;
-    return newSt;
-}
-
-String String::operator+(const char* s)
-{
-
-    int newLen = len + std::strlen(s);
-    char* temp = new char[newLen + 1];
-    std::strcpy(temp, str);
-    std::strcat(temp, s);
-    String newSt(temp);
-    delete[] temp;
-    return newSt;
-}
+//String String::operator+(const String& st)
+//{
+//    int newLen = len + st.len;
+//    char* temp = new char[newLen + 1];
+//    std::strcpy(temp, str);
+//    std::strcat(temp, st.str);
+//    String newSt(temp);
+//    delete[] temp;
+//    return newSt;
+//}
+//
+//String String::operator+(const char* s)
+//{
+//
+//    int newLen = len + std::strlen(s);
+//    char* temp = new char[newLen + 1];
+//    std::strcpy(temp, str);
+//    std::strcat(temp, s);
+//    String newSt(temp);
+//    delete[] temp;
+//    return newSt;
+//}
 
 char& String::operator[](int i)
 {
@@ -118,10 +118,21 @@ const char& String::operator[](int i) const
     return str[i];
 }
 
-String operator+(const char* s, const String& st)
+//String operator+(const char* s, const String& st)
+//{
+//    String temp(s);
+//    return temp + st;
+//}
+
+String operator+(const String& st1, const String& st2)
 {
-    String temp(s);
-    return temp + st;
+    int len = st1.len + st2.len;
+    char* temp = new char[len + 1];
+    std::strcpy(temp, st1.str);
+    std::strcat(temp, st2.str);
+    String newSt(temp);
+    delete[] temp;
+    return newSt;
 }
 
 bool operator<(const String& st1, const String& st2)

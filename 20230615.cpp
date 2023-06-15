@@ -62,7 +62,7 @@ int main()
 	String s3;
 	cout << s2;
 	cin >> s3;
-	s2 = "My name is " + s3;
+	s2 = "My name is " + s3 + "park";
 	cout << s2 << ".\n";
 	s2 = s2 + s1;
 	s2.stringup();
