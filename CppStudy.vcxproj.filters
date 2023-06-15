@@ -81,10 +81,13 @@
     <ClCompile Include="20230614.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="stringbad.cpp">
+    <ClCompile Include="string1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="mypoint.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="20230615.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,7 +116,7 @@
     <ClInclude Include="rectangle2D.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="stringbad.h">
+    <ClInclude Include="string1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="mypoint.h">

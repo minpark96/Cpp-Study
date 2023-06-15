@@ -45,8 +45,6 @@ int main()
 	cin >> x >> y >> z;
 	cVector3 v2 = cVector3(x, y, z);
 
-	//cVector3::Angle(v1, v2);
-
 	cout << "v1 length: " << v1.length() << endl;
 	cout << "v2 length: " << v2.length() << endl;
 
@@ -56,6 +54,9 @@ int main()
 	cout << "µÎ º¤ÅÍÀÇ dot: " << v1.Dot(v2) << endl;
 	cout << "µÎ º¤ÅÍÀÇ cross: " << v1.Cross(v2) << endl;
 	cout << "µÎ º¤ÅÍÀÇ »çÀÌ°¢: " << v1.Angle(v2) << endl;
+	cout << "µÎ º¤ÅÍÀÇ dot: " << cVector3::Dot(v1, v2) << endl;
+	cout << "µÎ º¤ÅÍÀÇ cross: " << cVector3::Cross(v1, v2) << endl;
+	cout << "µÎ º¤ÅÍÀÇ »çÀÌ°¢: " << cVector3::Angle(v1, v2) << endl;
 
 	return 0;
 }
