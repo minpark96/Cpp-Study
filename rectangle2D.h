@@ -4,24 +4,23 @@
 
 #include "mypoint.h"
 
-class Rectangle2D
+class Rectangle2D : public MyPoint
 {
 private:
-	double x, y;
 	double width, height;
 public:
 	Rectangle2D();
-	~Rectangle2D();
+	Rectangle2D(double x, double y, double w, double h);
 
-	double getX() const;
-	double getY() const;
 	double getWidth() const;
 	double getHeight() const;
 	double getArea() const;
 	double getPerimeter() const;
+	double getRight() const;
+	double getLeft() const;
+	double getDown() const;
+	double getUp() const;
 
-	void setX(const double d);
-	void setY(const double d);
 	void setWidth(const double d);
 	void setHeight(const double d);
 

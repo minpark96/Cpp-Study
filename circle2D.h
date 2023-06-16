@@ -4,21 +4,21 @@
 
 #include "mypoint.h"
 
-class Circle2D
+class Circle2D : public MyPoint
 {
 private:
-	double x, y, radius;
+	double radius;
 public:
 	Circle2D();
 	Circle2D(double x, double y, double r);
-	~Circle2D();
-	
-	double getX() const;
-	double getY() const;
+
 	double getRadius() const;
 	double getArea() const;
 	double getPerimeter() const;
-	bool contains(double x, double y) const;
+
+	void setRadius(const double d);
+
+	bool contains(const double x, const double y) const;
 	bool contains(const Circle2D& circle) const;
 	bool overlaps(const Circle2D& circle) const;
 

@@ -1,33 +1,22 @@
 #include "mypoint.h"
 #include <cmath>
 
-MyPoint::MyPoint()
+MyPoint::MyPoint() 
+    : GeometricObject()
 {
-    x = 0;
-    y = 0;
 }
 
-MyPoint::MyPoint(double x, double y)
+MyPoint::MyPoint(double x, double y) 
+    : GeometricObject(x, y)
 {
-    this->x = x;
-    this->y = y;
 }
 
 MyPoint::~MyPoint()
 {
 }
 
-double MyPoint::getX() const
+double MyPoint::distance(const GeometricObject& g) const
 {
-    return x;
-}
-
-double MyPoint::getY() const
-{
-    return y;
-}
-
-double MyPoint::distance(const MyPoint& p) const
-{
-    return sqrt(pow(getX() - p.getX(), 2) + pow(getY() - p.getY(), 2));
+    return sqrt((getX() - g.getX()) * (getX() - g.getX()) 
+        + (getY() - g.getY()) * (getY() - g.getY()));
 }

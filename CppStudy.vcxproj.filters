@@ -72,10 +72,10 @@
     <ClCompile Include="20230612.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="circle2D.cpp">
+    <ClCompile Include="circle2d.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="rectangle2D.cpp">
+    <ClCompile Include="rectangle2d.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="20230614.cpp">
@@ -88,6 +88,18 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="20230615.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="20230616.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="tabtenn0.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="dma.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="geometric_object.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,16 +122,25 @@
     <ClInclude Include="cVector3.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="circle2D.h">
+    <ClInclude Include="circle2d.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="rectangle2D.h">
+    <ClInclude Include="rectangle2d.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="string1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="mypoint.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tabtenn0.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="dma.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="geometric_object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

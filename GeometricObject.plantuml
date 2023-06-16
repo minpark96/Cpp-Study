@@ -1,0 +1,56 @@
+@startuml GeometricObject
+
+GeometricObject <|-- MyPoint
+MyPoint <|-- Circle2D
+MyPoint <|-- Rectangle2D
+
+abstract class GeometricObject {
+-x: double
+-y: double
++getX(): double 
++getY(): double 
++setX(const double): void
++setY(const double): void
++{abstract} distance(const GeometricObject&): double
+} 
+
+class MyPoint
+{
++distance(const GeometricObject&): double 
+}
+
+class Circle2D
+{
+-radius: double
++getRadius(): double
++getArea(): double
++getPerimeter(): double
++setRadius(const double): void
++contains(const double, const double): bool
++contains(const Circle2D&): bool
++overlaps(const Circle2D&): bool
++contains(const Circle2D&, const MyPoint&): bool
+}
+
+class Rectangle2D
+{
+-width: double
+-height: double
++getWidth(): double
++getHeight(): double
++getArea(): double
++getPerimeter(): double
++getRight(): double
++getLeft(): double
++getDown(): double
++getUp(): double
++setWidth(const double): void
++setHeight(const double): void
++contains(const double, const double): bool
++contains(const Rectangle2D&): bool
++overlaps(const Rectangle2D&): bool
++contains(const Rectangle2D&, const MyPoint&): bool
+}
+
+
+@enduml

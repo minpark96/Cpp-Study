@@ -44,11 +44,7 @@ int main()
 	MyPoint p1(0, 0);
 	MyPoint p2(10, 30.5);
 	Circle2D c1(1, 1, 1.5);
-	Rectangle2D r1;
-	r1.setX(1);
-	r1.setY(1.5);
-	r1.setWidth(2);
-	r1.setHeight(3);
+	Rectangle2D r1(1, 1.5, 2, 3);
 	using namespace std;
 	cout << "p1(" << p1.getX() << ", " << p1.getY() << ")" << endl;
 	cout << "p2(" << p2.getX() << ", " << p2.getY() << ")" << endl;

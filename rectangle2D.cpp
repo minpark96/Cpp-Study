@@ -1,25 +1,18 @@
-#include "rectangle2D.h"
+#include "rectangle2d.h"
 
 Rectangle2D::Rectangle2D()
+	: MyPoint()
 {
-	x = 0;
-	y = 0;
 	width = 1;
 	height = 1;
 }
 
-Rectangle2D::~Rectangle2D()
+Rectangle2D::Rectangle2D(double x, double y, 
+	double w, double h)
+	: MyPoint(x, y)
 {
-}
-
-double Rectangle2D::getX() const
-{
-	return x;
-}
-
-double Rectangle2D::getY() const
-{
-	return y;
+	width = w;
+	height = h;
 }
 
 double Rectangle2D::getWidth() const
@@ -42,14 +35,24 @@ double Rectangle2D::getPerimeter() const
 	return 2 * (width + height);
 }
 
-void Rectangle2D::setX(const double d)
+double Rectangle2D::getRight() const
 {
-	x = d;
+	return getX() + width / 2;
 }
 
-void Rectangle2D::setY(const double d)
+double Rectangle2D::getLeft() const
 {
-	y = d;
+	return getX() - width / 2;
+}
+
+double Rectangle2D::getDown() const
+{
+	return getY() - height / 2;
+}
+
+double Rectangle2D::getUp() const
+{
+	return getY() + height / 2;
 }
 
 void Rectangle2D::setWidth(const double d)
@@ -62,44 +65,35 @@ void Rectangle2D::setHeight(const double d)
 	height = d;
 }
 
-bool Rectangle2D::contains(const double x, const double y) const
+bool Rectangle2D::contains(const double x, 
+	const double y) const
 {
-	if (x > getX() + getWidth() / 2 || x < getX() - getWidth() / 2)
+	if (x > getX() + width / 2 || x < getX() - width / 2)
 		return false;
 	else
-		if(y > getY() + getHeight() / 2 || y < getY() - getHeight() / 2)
+		if(y > getY() + height / 2 || y < getY() - height / 2)
 			return false;
 	return true;
 }
 
 bool Rectangle2D::contains(const Rectangle2D& r) const
 {
-	double l1, r1, u1, d1;
-	double l2, r2, u2, d2;
-	l1 = getX() - getWidth() / 2;
-	r1 = getX() + getWidth() / 2;
-	u1 = getY() + getHeight() / 2;
-	d1 = getY() - getHeight() / 2;
-	l2 = r.getX() - r.getWidth() / 2;
-	r2 = r.getX() + r.getWidth() / 2;
-	u2 = r.getY() + r.getHeight() / 2;
-	d2 = r.getY() - r.getHeight() / 2;
-
-	if (this->getPerimeter() > r.getPerimeter())
+	if (getPerimeter() > r.getPerimeter())
 	{
-		if (r1 > r2 && l1 < l2)
-			if (u1 > u2 && d1 < d2)
+		if (getRight() > r.getRight() && getLeft() < r.getLeft())
+			if (getDown() < r.getDown() && getUp() > r.getUp())
 				return true;
 	}
-	else if (this->getPerimeter() < r.getPerimeter())
+	else if (getPerimeter() < r.getPerimeter())
 	{
-		if (r1 < r2 && l1 > l2)
-			if (u1 < u2 && d1 > d2)
+		if (getRight() < r.getRight() && getLeft() > r.getLeft())
+			if (getDown() > r.getDown() && getUp() < r.getUp())
 				return true;
 	}
 	else
 	{
-		if (getX() == r.getX() && getY() == r.getY() && getWidth() == r.getWidth() && getHeight() == r.getHeight())
+		if (getX() == r.getX() && getY() == r.getY() 
+			&& width == r.width && height == r.height)
 			return true;
 	}
 	return false;
@@ -107,24 +101,13 @@ bool Rectangle2D::contains(const Rectangle2D& r) const
 
 bool Rectangle2D::overlaps(const Rectangle2D& r) const
 {
-	double l1, r1, u1, d1;
-	double l2, r2, u2, d2;
-	l1 = getX() - getWidth() / 2;
-	r1 = getX() + getWidth() / 2;
-	u1 = getY() + getHeight() / 2;
-	d1 = getY() - getHeight() / 2;
-	l2 = r.getX() - r.getWidth() / 2;
-	r2 = r.getX() + r.getWidth() / 2;
-	u2 = r.getY() + r.getHeight() / 2;
-	d2 = r.getY() - r.getHeight() / 2;
-	
-	if (d1 > u2)
+	if (getDown() > r.getUp())
 		return false;
-	else if (d2 > u1)
+	else if (getUp() < r.getDown())
 		return false;
-	else if (l1 > r2)
+	else if (getRight() < r.getLeft())
 		return false;
-	else if (l2 > r1)
+	else if (getLeft() > r.getRight())
 		return false;
 	else
 		return true;

@@ -2,18 +2,16 @@
 #ifndef MYPOINT_H_
 #define MYPOINT_H_
 
-class MyPoint
+#include "geometric_object.h"
+
+class MyPoint : public GeometricObject
 {
-private:
-	double x, y;
 public:
 	MyPoint();
 	MyPoint(double x, double y);
-	~MyPoint();
+	virtual ~MyPoint();
 
-	double getX() const;
-	double getY() const;
-	double distance(const MyPoint& p) const;
+	double distance(const GeometricObject& g) const;
 };
 
 #endif
