@@ -5,46 +5,68 @@ void sort(int* ary, int len);
 
 int main()
 {
-	int l, v;
+	int l;
 	std::cout << "도로의 전체 길이: ";
 	std::cin >> l;
-	int* ary1 = new int[1000];
-	int size = 0;
+	int* ary = new int[1000];
 
-	for (int i = 0; i < l + 1; i++)
-	{
-		std::cout << "위치 v(종료 시 -1): ";
-		std::cin >> v;
-		if (v < 0)
-			break;
-		ary1[i] = v;
-		size++;
-	}
-	int* ary2 = new int[size];
-
-	for (int i = 0; i < size; i++)
-	{
-		ary2[i] = ary1[i];
-	}
-	delete[] ary1;
-
-	sort(ary2, size);
-	//std::cout << "최솟값: " << solution(l, ary2) << std::endl;
-
-	delete[] ary2;
+	std::cout << "최솟값 output: " << solution(l, ary) << std::endl;
 
 	return 0;
 }
 
-int solution(int len, int* ary)
+int solution(int len, int* v)
 {
-//	int res;
+	int diff, rot;
+	int size = 0;
 
+	std::cout << "가로등 위치 v(종료 시 -1): ";
+	while (1)
+	{
+		for (int i = 0; i < len + 1; i++)
+		{
+			std::cin >> rot;
+			if (rot < 0)
+				break;
+			v[i] = rot;
+			size++;
+		}
+
+		if (size > 0)
+			break;
+		else
+			std::cout << std::endl << "하나 이상을 입력하시오: ";
+	}
 	
+	int* nV = new int[size];
 
+	for (int i = 0; i < size; i++)
+		nV[i] = v[i];
 
+	delete[] v;
+	sort(nV, size);
+	int max = 0;
 
-	return 1;
+	for (int i = 0; i < size; i++)
+	{
+		if (size == 1)
+		{
+			max = nV[0] - 0 > len - nV[0] ? nV[0] - 0 : len - nV[0];
+		}
+		else
+		{
+			if (i == 0)
+				diff = nV[0] - 0;
+			else if (i == size - 1)
+				diff = len - nV[i];
+			else
+				diff = (nV[i + 1] - nV[i]) / 2 + 1;
+
+			if (diff > max)
+				max = diff;
+		}
+	}
+	return max;
 }
 
 void sort(int* ary, int len)
