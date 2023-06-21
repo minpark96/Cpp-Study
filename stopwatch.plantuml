@@ -1,0 +1,14 @@
+@startuml StopWatch
+
+class StopWatch
+{
+-startTime: clock_t
+-endTime: clock_t
++getStartTime(): clock_t
++getEndTime(): clock_t
++start(): 
++stop(): 
++getElapsedime(): clock_t
+}
+
+@enduml
