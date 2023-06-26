@@ -44,28 +44,33 @@ int solution(int len, int* v)
 		nV[i] = v[i];
 
 	delete[] v;
-	sort(nV, size);
 	int max = 0;
 
-	for (int i = 0; i < size; i++)
+	if (size == 1)
+		max = nV[0] - 0 > len - nV[0] ? nV[0] - 0 : len - nV[0];
+	else
 	{
-		if (size == 1)
-		{
-			max = nV[0] - 0 > len - nV[0] ? nV[0] - 0 : len - nV[0];
-		}
-		else
+		sort(nV, size);
+		for (int i = 0; i < size; i++)
 		{
 			if (i == 0)
 				diff = nV[0] - 0;
 			else if (i == size - 1)
 				diff = len - nV[i];
 			else
-				diff = (nV[i + 1] - nV[i]) / 2 + 1;
+			{
+				diff = nV[i + 1] - nV[i];
+				if(diff % 2)
+					diff++;
+
+				diff /= 2;
+			}
 
 			if (diff > max)
 				max = diff;
 		}
 	}
+	
 	return max;
 }
 
