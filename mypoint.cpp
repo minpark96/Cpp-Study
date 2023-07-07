@@ -17,6 +17,6 @@ MyPoint::~MyPoint()
 
 double MyPoint::distance(const GeometricObject& g) const
 {
-    return sqrt((getX() - g.getX()) * (getX() - g.getX()) 
+    return sqrt((getX() - g.getX()) * (getX() - g.getX())
         + (getY() - g.getY()) * (getY() - g.getY()));
 }
